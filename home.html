@@ -12,7 +12,7 @@
     <title>Simple Form to Text</title>
 </head>
 <body>
-    <form action="/" method="post">
+    <form id="form" action="/" method="post">
         <ul>
          <li>
            <label for="incident-type-input">Incident Type:</label>
@@ -43,17 +43,18 @@
 
     <!-- Custom JS -->
     <script>
-        console.log("Form initialised")
-        $('#form input').change(function() {
-            console.log("Form change detected")
-            $(':input').each(function() {
-                var input_id = $(this).attr();
-                var text_object = $('#' + input_id + '-output');
-                var value = $(this).val()
-                console.log(`Updating value for input ${input_id} with value ${value}`)
-                text_object.text(value);
-            });
-        })
+        $(document).ready(function() { 
+            console.log("Form initialised");
+            $('#form input').change(function() {
+                console.log("Form change detected")
+                $(':input').each(function() {
+                    var input_id = $(this).attr();
+                    var text_object = $('#' + input_id + '-output');
+                    var value = $(this).val()
+                    console.log(`Updating value for input ${input_id} with value ${value}`)
+                    text_object.text(value);
+                });
+        })});
     </script>
 
 </body>
