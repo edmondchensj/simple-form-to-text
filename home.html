@@ -16,11 +16,11 @@
         <ul>
          <li>
            <label for="incident-type-input">Incident Type:</label>
-           <input type="text" id="incident-type-input">
+           <input type="text" id="incident-type">
          </li>
          <li>
            <label for="description-input">Brief Description:</label>
-           <input type="text" id="description-input">
+           <input type="text" id="description">
          </li>
         </ul>
     </form>
@@ -28,8 +28,8 @@
     <div id="output">
         <p>
             Unit, coy/branch 121C4I RSTA Coy <br>
-            <b>1) Nature and Type of incident: </b><span id="incident-type"></span><br><br>
-            <b>2) Brief Description of Incident: </b><span id="incident-description"></span><br><br>
+            <b>1) Nature and Type of incident: </b><span id="incident-type-output"></span><br><br>
+            <b>2) Brief Description of Incident: </b><span id="description-output"></span><br><br>
 
         </p>
 
@@ -48,7 +48,7 @@
             console.log("Form change detected")
             $(':input').each(function() {
                 var input_id = $(this).attr();
-                var text_object = $('#' + "incident-" + input_id);
+                var text_object = $('#' + input_id + '-output');
                 var value = $(this).val()
                 console.log(`Updating value for input ${input_id} with value ${value}`)
                 text_object.text(value);
