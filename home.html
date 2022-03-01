@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel='stylesheet' type='text/css' href="css/bootstrap.min.css') }}">
+
+    <title>Simple Form to Text</title>
+</head>
+<body>
+    <form action="/" method="post">
+        <ul>
+         <li>
+           <label for="incident-type-input">Incident Type:</label>
+           <input type="text" id="incident-type-input">
+         </li>
+         <li>
+           <label for="description-input">Brief Description:</label>
+           <input type="text" id="description-input">
+         </li>
+        </ul>
+    </form>
+
+    <div id="output">
+        <p>
+            Unit, coy/branch 121C4I RSTA Coy <br>
+            <b>1) Nature and Type of incident: </b><span id="incident-type"></span><br><br>
+            <b>2) Brief Description of Incident: </b><span id="incident-description"></span><br><br>
+
+        </p>
+
+    </div>
+
+    <!-- Jquery -->
+    <script src="{{ url_for('static', filename='packages/jquery-3.6.0/jquery.min.js') }}"></script>
+
+    <!-- Bootstrap JS (bundle comes with Popper JS) -->
+    <script src="{{ url_for('static', filename='packages/bootstrap-4.5.0/js/bootstrap.bundle.min.js') }}"></script>
+
+    <!-- Custom JS -->
+    <script>
+        $('#form input').change(function() {
+            $(':input').each(function() {
+                var input_id = $(this).attr();
+                var text_object = $('#' + "incident-" + input_id);
+                text_object.text($(this).val());
+            });
+        })
+    </script>
+
+</body>
+</html>
