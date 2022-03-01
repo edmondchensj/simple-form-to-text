@@ -43,11 +43,15 @@
 
     <!-- Custom JS -->
     <script>
+        console.log("Form initialised")
         $('#form input').change(function() {
+            console.log("Form change detected")
             $(':input').each(function() {
                 var input_id = $(this).attr();
                 var text_object = $('#' + "incident-" + input_id);
-                text_object.text($(this).val());
+                var value = $(this).val()
+                console.log(`Updating value for input ${input_id} with value ${value}`)
+                text_object.text(value);
             });
         })
     </script>
