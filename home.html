@@ -47,8 +47,8 @@
             console.log("Form initialised");
             $('#form input').change(function() {
                 console.log("Form change detected");
-                $('input').each(function() {
-                    var input_id = $(this).attr();
+                $(':input').each(function() {
+                    var input_id = $(this).attr("id");
                     var text_object = $('#' + input_id + '-output');
                     var value = $(this).val()
                     console.log(`Updating value for input ${input_id} with value ${value}`)
